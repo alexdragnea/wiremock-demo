@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-class WiremockForTestingApplicationTests {
+class IntegrationDemoControllerSpringBootTest {
 
     private static WireMockServer wireMockServer;
 
@@ -47,19 +47,9 @@ class WiremockForTestingApplicationTests {
                         .withStatus(OK.value())));
 
         mockMvc.perform(get("/demo"))
-                .andExpect(status().isOk());
+                        .andExpect(status().isOk());
 
         verify(getRequestedFor(urlPathEqualTo("/anything")));
     }
 
 }
-
-
-
-
-
-
-
-
-
-
